@@ -1,14 +1,18 @@
-# Welcome to your Lovable project
+# Emotion Driven Scaling
+
+Build a cloud autoscaler that reacts not only to CPU/memory metrics but also to user sentiment (from feedback streams or social media). Show how workloads scale up/down based on positive vs. negative sentiment trends.
 
 This project was built with [Lovable](https://lovable.dev).
 
+**Live app**: https://emotion-auto-scale.lovable.app
+
 ## Build with Lovable
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/0de79861-b3c5-446d-874f-a1083f0f5db2).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
@@ -20,10 +24,3 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
