@@ -49,7 +49,7 @@ function Index() {
       setData((prev) => {
         const last = prev[prev.length - 1]!;
         const { scenario: sc, weight: w } = ref.current;
-        const target = { viral: [0.8, 95], outage: [-0.8, 85], churn: [-0.6, 20], calm: [0.1, 30] }[sc];
+        const target = { viral: [0.8, 95], outage: [-0.8, 85], churn: [-0.6, 20], calm: [0.1, 30] }[sc] as [number, number];
         const sent = clamp(last.sent + (target[0] - last.sent) * 0.15 + rnd(0.08), -1, 1);
         const vol = clamp(last.vol + (target[1] - last.vol) * 0.15 + rnd(4), 5, 100);
         const demand = 40 + vol * 0.6 * (sc === "churn" ? 0.4 : 1);
