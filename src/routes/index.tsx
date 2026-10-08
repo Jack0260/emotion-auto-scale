@@ -47,7 +47,7 @@ function Index() {
   useEffect(() => {
     const id = setInterval(() => {
       setData((prev) => {
-        const last = prev[prev.length - 1];
+        const last = prev[prev.length - 1]!;
         const { scenario: sc, weight: w } = ref.current;
         const target = { viral: [0.8, 95], outage: [-0.8, 85], churn: [-0.6, 20], calm: [0.1, 30] }[sc];
         const sent = clamp(last.sent + (target[0] - last.sent) * 0.15 + rnd(0.08), -1, 1);
@@ -63,7 +63,7 @@ function Index() {
           setEvents((e) => [{ t: last.t + 1, kind: replicas > last.replicas ? "up" : "down", msg: `${last.replicas} → ${replicas} pods · ${why}` } as Event, ...e].slice(0, 8));
         }
         const pool = sent > 0.3 ? POS : sent < -0.3 ? NEG : NEU;
-        const text = pool[Math.floor(Math.random() * pool.length)];
+        const text = pool[Math.floor(Math.random() * pool.length)]!;
         setFeed((f) => [{ text, s: sent }, ...f].slice(0, 7));
         return [...prev, { t: last.t + 1, cpu, mem, sent, vol, replicas }].slice(-60);
       });
@@ -71,7 +71,7 @@ function Index() {
     return () => clearInterval(id);
   }, []);
 
-  const cur = data[data.length - 1];
+  const cur = data[data.length - 1]!;
   return (
     <main className="min-h-screen bg-background text-foreground p-6 md:p-10 font-mono">
       <header className="flex flex-wrap items-end justify-between gap-4 mb-8">
@@ -127,7 +127,7 @@ function Index() {
   );
 }
 
-function Stat({ label, value, big, tone }: { label: string; value: string | number; big?: boolean; tone?: "pos" | "neg" }) {
+function Stat({ label, value, big, tone }: { label: string; value: string | number; big?: boolean; tone?: "pos" | "neg" | undefined }) {
   return (
     <div className="rounded-lg border border-border bg-card p-4">
       <p className="text-[10px] uppercase tracking-widest text-muted-foreground">{label}</p>
